@@ -1,0 +1,24 @@
+// Assignment: Display all uncommon black cards (including multi-colored cards) from the given API in the format of "name" "manaCost"
+
+// Source URL
+url = 'https://api.magicthegathering.io/v1/cards'
+
+console.log("These are all the uncommon black cards from https://api.magicthegathering.io/v1/cards.")
+
+fetch(url).then(value => {
+  if(value.status === 200){
+    alert("API call is successful!")
+    value.json().then(data => {
+      var output = data.cards.filter((a) => {
+        if( (a.manaCost.search('{B}') == -1) || (a.rarity != "Uncommon") ) {
+          return false
+        } 
+        console.log(a.name, a.manaCost)
+      })
+    })
+  } else{ errorCallback }
+})
+
+errorCallback = () => {
+  alert("Something is not right ...")  
+}
