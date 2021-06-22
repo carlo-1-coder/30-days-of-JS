@@ -1,4 +1,4 @@
-// Jun 22, 2021
+// Day 02: Jun 22, 2021
 
 // Objects
 // Strings (Array of characters)

@@ -1,3 +1,5 @@
+// Day 01: Jun 20, 2021
+
 // // Types of Function Declaration:
 // // 1) Classic declaration
 // // 2) Arrow function
