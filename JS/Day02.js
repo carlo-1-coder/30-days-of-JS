@@ -63,3 +63,8 @@ console.log(personNameArray.join(''))
 // [Extra] What will happen if you compare a string, integer, and decimal?
 // [Extra] Even in python, strings are immutable.
 // [Extra] What happens when an array index overflows in a loop? What happens when you access out-of-bounds value in an array?
+
+// Day 02 assignment: 
+// Level 1 sort: Sort the cards by ascending color code (Black = B, then Green = G, then Blue = U, etc.) alphabetically 
+// Level 2 sort: Sort by increasing manaCost 
+// Display "name" "manaCost"
