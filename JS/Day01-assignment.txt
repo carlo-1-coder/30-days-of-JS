@@ -9,16 +9,16 @@ fetch(url).then(value => {
   if(value.status === 200){
     alert("API call is successful!")
     value.json().then(data => {
-      var output = data.cards.filter((a) => {
-        if( (a.manaCost.search('{B}') == -1) || (a.rarity != "Uncommon") ) {
-          return false
-        } 
+      // refactor filter -> map
+      data.cards.map(data=>{
+        if( (a.manaCost.search('{B}') == -1) || (a.rarity != "Uncommon") ) { return }
         console.log(a.name, a.manaCost)
       })
     })
-  } else{ errorCallback }
+  } else{ errorCallback() // fix function call }
 })
 
 errorCallback = () => {
   alert("Something is not right ...")  
 }
+
