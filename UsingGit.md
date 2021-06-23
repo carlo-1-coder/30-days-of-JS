@@ -27,5 +27,8 @@ Pushes the changes in your local repository up to the remote repository you spec
 
 **Source:** https://docs.github.com/en/github/managing-files-in-a-repository/managing-files-using-the-command-line/adding-a-file-to-a-repository-using-the-command-line
 
+
 ## Extra:
-What does **push -u** do?
+1. What does **push -u** do?
+2. Outline the whole git workflow
+3. >git pull origin
