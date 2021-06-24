@@ -32,14 +32,51 @@
  * 19:05:45
  */
 
-// Input string here that represents time in 12-hour clock format (hh:mm:ssAM or hh:mm:ssPM)
-var input = '12:00:00AM'
-var hr = parseInt(input[0] + input[1])
-var min = parseInt(input[3] + input[4])
-var sec = parseInt(input[6] + input[7])
-var period = input[8] + input[9]
+// // Solution 1: input time string is assigned to a variable
+// // Input string here that represents time in 12-hour clock format (hh:mm:ssAM or hh:mm:ssPM)
+// var input = '12:00:00AM'
 
-timeConversion = (output) => {
+// timeConversion = (output) => {
+//   var hr = parseInt(input[0] + input[1])
+//   var min = parseInt(input[3] + input[4])
+//   var sec = parseInt(input[6] + input[7])
+//   var period = input[8] + input[9]
+
+//   if (period == 'PM') {
+//     hr = hr + 12
+//   }
+//   if (hr == 12) {
+//     hr = 0
+//   } else if (hr == 24) {
+//     hr = 12
+//   }
+//   if (hr < 10) {
+//     hr = '0' + hr
+//   }
+//   if (min < 10) {
+//     min = '0' + min
+//   }
+//   if (sec < 10) {
+//     sec = '0' + sec
+//   }
+//   output = hr.toString() + ':' + min.toString() + ':' + sec.toString()  
+//   console.log(output)
+// }
+
+// timeConversion()
+
+// Solution 2: trying a more efficient solution, and place input inside a function
+// Input string here that represents time in 12-hour clock format (hh:mm:ssAM or hh:mm:ssPM)
+
+timeConversion = (input) => {
+
+  input = input.split(':')
+
+  var hr = parseInt(input[0])
+  var min = parseInt(input[1])
+  var sec = parseInt(input[2].slice(0, 2))
+  var period = input[2].slice(2,4)
+
   if (period == 'PM') {
     hr = hr + 12
   }
@@ -57,8 +94,8 @@ timeConversion = (output) => {
   if (sec < 10) {
     sec = '0' + sec
   }
-  output = hr.toString() + ':' + min.toString() + ':' + sec.toString()  
+  var output = hr.toString() + ':' + min.toString() + ':' + sec.toString()  
   console.log(output)
 }
 
-timeConversion()
+timeConversion('08:19:13PM')
