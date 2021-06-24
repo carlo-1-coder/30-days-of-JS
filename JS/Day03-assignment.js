@@ -98,4 +98,4 @@ timeConversion = (input) => {
   console.log(output)
 }
 
-timeConversion('08:19:13PM')
+timeConversion('12:19:13PM')
