@@ -9,7 +9,8 @@
 // Source URL
 url = 'https://api.magicthegathering.io/v1/cards'
 
-console.log("These are all the cards from https://api.magicthegathering.io/v1/cards sorted alphabetically based on their color codes (Black = B, Green = G, Red = R, Blue = U, White = W), then sorted by increasing manaCost.")
+console.log("These are the list of all cards from the URL:")
+
 
 var allBCards = []
 var allGCards = []
@@ -36,26 +37,19 @@ function toArray(srcArray, outputArray, colorKey) {
       return false
     }
   })
-  console.log(outputArray)
 }
 
 fetch(url).then(response => {
   response.json().then(data => {
     var output = data.cards
-    // console.log("These are the list of all cards from the URL:")
-    // console.log(output)
-    // // For putting all black cards in allBCards
-    // toArray(output, allBCards, '{B}')
-    // // For putting all green cards in allGCards
-    // toArray(output, allGCards, '{G}')
-    // // For putting all red cards in allRCards
-    // toArray(output, allRCards, '{R}')
-    // // For putting all blue cards in allUCards
-    // toArray(output, allUCards, '{U}')
-    // // For putting all white cards in allWCards
-    // toArray(output, allGCards, '{W}')
-    for (i = 0 ; i < colorCodeSet.length - 1 ; i++ ) {
-      toArray(output, window['all' + colorCodeSet[i] + 'Cards'], `'{${colorCodeSet[i]}}'`)
+    console.log(output)
+
+    console.log("These are all the cards from https://api.magicthegathering.io/v1/cards sorted alphabetically based on their color codes (Black = B, Green = G, Red = R, Blue = U, White = W), then sorted by increasing manaCost.")
+
+    // For putting all cards of a certain color in their designated array
+    // Sample result of the statement in the next for loop: toArray(output, allBCards, '{B}')
+    for (i = 0 ; i < colorCodeSet.length ; i++ ) {
+      toArray(output, window['all' + colorCodeSet[i] + 'Cards'], `{${colorCodeSet[i]}}`)
     }
 
 
