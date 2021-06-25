@@ -11,3 +11,26 @@
 // If exit, it should show the results
 // 
 // Needs knowledge of inputting into JS
+
+
+/**Code components
+ * 1) Introduction to the app
+ * 2) Set win rate
+ * 3) Prompt user for his/her input/action?
+ * 4) Read user input
+ * 5) Computer decides & outputs action based on winrate selected
+ * 6) Prompt user if he/she wants to CONTINUE or EXIT
+ *    6a) CONTINUE: Return to (3)
+ *    6b) EXIT: Show results > Proceed to Exit
+ */
+
+// 1) Introduction to the app
+alert('Good day!! Welcome to Virtual Rock-Paper-Scissors.\n')
+alert('You have been selected to be a beta-tester of this one-of-a-kind and revolutionary game.')
+
+var pName = window.prompt('Kindly enter your nickname: ')
+alert('Hello ' + pName + '!');
+
+// 2) Set win rate
+var pInput = window.prompt('')
+alert()
