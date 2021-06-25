@@ -25,12 +25,11 @@
  */
 
 // 1) Introduction to the app
-// alert('Good day!! Welcome to Virtual Rock-Paper-Scissors.\n')
-// alert('You have been selected to be a beta-tester of this one-of-a-kind and revolutionary game.')
+alert('Good day!! Welcome to Virtual Rock-Paper-Scissors.\n')
+alert('You have been selected to be a beta-tester of this one-of-a-kind and revolutionary game.')
 
-// var pName = window.prompt('Kindly enter your nickname: ')
-// alert('Hello ' + pName + '!');
-var pName = 'Carlo'
+var pName = window.prompt('Kindly enter your nickname: ')
+alert('Hello ' + pName + '!');
 
 // 2) Set win rate
 var winRate = window.prompt('Enter value between 0 and 100 setting the win rate of your nemesis, where 0 means you will always fail, while 100 means you will always succeed against your nemesis: ')
