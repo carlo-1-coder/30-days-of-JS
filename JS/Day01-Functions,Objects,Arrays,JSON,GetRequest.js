@@ -35,11 +35,13 @@
 
 
 // // 2) Arrow declaration
-// // name (variable) = (param1, param2, ...) => {
+// // variable = (param1, param2, ...) => {
 // // statements to execute
 // // (optional) return statement
 // // }
 
+// Whenever you put a parenthesis pair beside a word, it will treat it as a function.
+// You don't assign a name to a function when you declare it. Functions don't have a name. Instead, you assign a function into a function label.
 
 // // JS Linter
 // /**
