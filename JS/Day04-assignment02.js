@@ -58,7 +58,7 @@ do {
 
 
   // 5) Computer decides & outputs action based on winrate selected
-  var nemesis = nemesisRNG()
+  var nemesis = 'R';
   
   var decisionKey = player + nemesis
   var resultKey;
