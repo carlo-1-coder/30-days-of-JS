@@ -1,6 +1,5 @@
 const assert = require('assert')
 
-// HH:MM:SSAM
 function convertTime(time){
 	input = time.split(':')
 	if(input[2].includes('AM')){
@@ -9,13 +8,8 @@ function convertTime(time){
 		}
 		return time.replace('AM','')
 	} 
-	ss = input[2].replace('PM','')
-	h = parseInt(input[0]) + 12
-	h = h >= 24? '12' : h.toString()
-	if(h.length < 2){
-		h = '0'+h
-	}
-	return h + ':' + input[1] + ':' + ss
+	h = parseInt(input[0])+12 >= 24? 12 : parseInt(input[0]+12)
+	return (h.length<2?'0'+h:h) + ':' + input[1] + ':' + input[2].replace('PM','')
 }
 
 
