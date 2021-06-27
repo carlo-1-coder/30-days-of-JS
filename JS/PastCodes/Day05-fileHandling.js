@@ -81,8 +81,8 @@ jsonData = JSON.parse(jsonString)
 console.log(jsonData)
 
 userDataJson = JSON.stringify(userData)
-fs.writeFileSync("sample.json", userDataJson)
+fs.writeFileSync("Day05-sample.json", userDataJson)
 
-fileContentUpdate = JSON.parse(fs.readFileSync("sample.json", "utf-8"))
+fileContentUpdate = JSON.parse(fs.readFileSync("Day05-sample.json", "utf-8"))
 fileContentUpdate[1]['name'] = 'jdc'
-fs.writeFileSync("sample.json", JSON.stringify(fileContentUpdate))
+fs.writeFileSync("Day05-sample.json", JSON.stringify(fileContentUpdate))
