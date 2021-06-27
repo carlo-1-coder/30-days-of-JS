@@ -32,21 +32,28 @@ var pName = window.prompt('Kindly enter your nickname: ')
 alert('Hello ' + pName + '!');
 
 // 2) Set win rate
-var winRate = window.prompt('Enter value between 0 and 100 setting the win rate of your nemesis, where 0 means you will always fail, while 100 means you will always succeed against your nemesis: ')
+var winRate = 1 - ( window.prompt('Enter value between 0 and 100 (treated as a number in %) to set the win rate of your nemesis.\nSetting 0 means your nemesis will always fail, while 100 means your nemesis will always succeed against you: ') / 100 )
+console.log('Player\'s Win Rate: ' + winRate)
+
+// OPTIONAL: Set tying rate
+var tyingRate = window.prompt('Enter value between 0 and 100 (treated as a number in %) to set the tying rate between you and your nemesis.\nSetting 0 means you will never tie, while setting 100 means you will always tie.') / 100
+console.log('Tying Rate: ' + tyingRate)
 
 var winKey = ['PR', 'RS', 'SP']
 var tieKey = ['PP', 'RR', 'SS']
 var lossKey = ['PS', 'RP', 'SR']
 
-function nemesisRNG (playerInput, winCount, winLossTotal) {
-  var influence = ( 1 - (winCount / winLossTotal) ) / 2
-  var output = Math.random() + influence 
-  return output > 0.5 ?  winKey.find( key => {
-    key[0] == playerInput
-  })[1] : lossKey.find(key => {
-    key[0] == playerInput
-  })[1]
-}; 
+function nemesisRNG (playerInput) {
+  if(Math.random() > 1 - tyingRate) {
+    return playerInput
+  } else {
+    if(Math.random() > 1 - winRate) {
+      return winKey.find( key => key[0] == playerInput)[1]
+    } else {
+      return lossKey.find( key => key[0] == playerInput)[1]
+    }
+  }
+}
 
 var round = 1
 var resultLog = []
@@ -58,7 +65,7 @@ do {
 
 
   // 5) Computer decides & outputs action based on winrate selected
-  var nemesis = 'R';
+  var nemesis = nemesisRNG(player)
   
   var decisionKey = player + nemesis
   var resultKey;
