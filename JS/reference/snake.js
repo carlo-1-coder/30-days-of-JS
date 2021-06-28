@@ -48,12 +48,6 @@ function displayGrid(matrix) {
 	}
 }
 
-function clearScreen () {
-	for(var i =0;i<process.stdout.getWindowSize()[1];i++){
-		console.log('\r\n');
-	}
-}
-
 function generateFoodCoords() {
 	while(true){
 		const x = parseInt(Math.random() * 10);
@@ -108,7 +102,7 @@ function init() {
 			}
 		}
 		// update the frame
-		clearScreen();
+		console.clear();
 		displayGrid(matrix);
 	})
 }
