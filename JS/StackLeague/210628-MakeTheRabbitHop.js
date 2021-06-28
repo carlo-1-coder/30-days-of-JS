@@ -1,4 +1,4 @@
-// BRONZE: Make the Rabbit Hop; Submitted: Jun 28, 2021 11:34; 100/100
+// BRONZE 001: Make the Rabbit Hop; Submitted: Jun 28, 2021 11:34; 100/100
 // Write a simple parser that will parse and hop the happy rabbit.
 // Happy Rabbit has 4 commands, each 1 character long:
 // 	• i makes the rabbit take one step forward or increments the value (initially 0)
