@@ -70,11 +70,45 @@
 
 // })
 
-function duration(v0, slope, dTot) {
+function duration(v0, slopePercent, dTot) {
+  // v0 is in km/h
+  // slopePercent is in %
+  // dTot is in km
+  // initial acceleration gamma is 0
+  // gamma is in km/h/min
   const MASS = 80 // in kg; biker's mass
   const WATTS0 = 225 // in W or J/sec; initial biker's power
-  const GRAVITY_ACC = 9.81 * 3.6 * 60.0 // acceleration due to gravity
-  const DRAG = 60.0 * 0.3 / 3.6 // force applied by air on the cyclist
+  const GRAVITY_ACC = 9.81 * 3.6 * 60.0 // acceleration due to gravity, km/h/min
+  const DRAG = 60.0 * 0.3 * 3.6 // force applied by air on the cyclist, modified
   const DELTA_T = 1.0 / 60.0 // change in time in mins
   const G_THRUST = 60 * 3.6 * 3.6 // pedaling thrust
+  const D_WATTS = 0.5 // loss of power at each deltaT
+
+  let speed = v0 / 60
+  let power = WATTS0
+  let distance = 0
+  let accelTotal = 0
+  let angle = Math.atan( slopePercent / 100 )
+  let accelGravOnPlane = GRAVITY_ACC * Math.cos( angle )
+  let time = 0
+
+  for (time = DELTA_T ; distance < dTot ; time += DELTA_T) {
+    console.log(`POWER: ${power}, SPEED: ${speed}, DISTANCE: ${distance}, accelTotal: ${accelTotal}, TIME: ${time}`)
+    power = power - ( D_WATTS * DELTA_T )
+    speed = speed + ( accelTotal * DELTA_T )
+    distance = distance + ( speed * DELTA_T / 60)
+  
+    accelTotal = accelGravOnPlane - ( DRAG * Math.abs(speed * speed) / MASS ) + ( G_THRUST * power / (speed * MASS) )
+  
+    accelTotal <= 1e-5 ? accelTotal = 0 : null
+    
+    if ( (speed - 3.0) <= 1e-2 ) {
+      return -1
+    }
+  }
+  return Math.round(time)
 }
+
+console.log(duration(30, 5, 30))
+// console.log(duration(30, 20, 30))
+// console.log(duration(30, 8, 20))
